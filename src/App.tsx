@@ -1,15 +1,18 @@
+import { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import siteContent from './content/siteContent.json'
 import seferImage from './assets/sefer.png'
 
+type Locale = 'en' | 'he'
+
 function App() {
-  const locale = 'en'
-  const content = siteContent[locale as keyof typeof siteContent]
+  const [locale, setLocale] = useState<Locale>('en')
+  const content = siteContent[locale]
 
   return (
     <div className="min-h-screen bg-[#f5efe7] text-slate-800">
-      <Header />
+      <Header locale={locale} onLocaleChange={setLocale} />
 
       <main className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
         <section className="relative overflow-hidden rounded-[2rem] border border-slate-200 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.35)]">

@@ -1,9 +1,10 @@
 import { useState } from 'react'
-
-const menuLinks = ['Collection', 'Journal', 'About']
+import siteContent from '../content/siteContent.json'
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const locale = 'en'
+  const content = siteContent[locale as keyof typeof siteContent]
 
   return (
     <header className="border-b border-slate-300/80 bg-[#f5efe7]/90 backdrop-blur-sm">
@@ -13,7 +14,7 @@ function Header() {
             type="button"
             onClick={() => setIsMenuOpen((open) => !open)}
             className="rounded-full border border-slate-300 bg-white/70 p-2.5 transition hover:border-slate-400 hover:bg-white"
-            aria-label="Open navigation menu"
+            aria-label={content.menuAria}
           >
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
               <path d="M4 7h16" strokeLinecap="round" />
@@ -24,7 +25,7 @@ function Header() {
 
           {isMenuOpen && (
             <div className="absolute left-4 top-16 z-20 w-48 rounded-2xl border border-slate-200 bg-white p-3 shadow-xl">
-              {menuLinks.map((link) => (
+              {content.menuLinks.map((link: string) => (
                 <a
                   key={link}
                   href="#"
@@ -38,13 +39,13 @@ function Header() {
         </div>
 
         <h1 className="text-center text-lg font-semibold uppercase tracking-[0.35em] text-slate-900">
-          EFI
+          {content.brandName}
         </h1>
 
         <button
           type="button"
-          className="flex w-24 items-center justify-end rounded-full border border-slate-300 bg-white/70 p-2.5 transition hover:border-slate-400 hover:bg-white"
-          aria-label="Open cart"
+          className="flex items-center justify-end rounded-full border border-slate-300 bg-white/70 p-2.5 transition hover:border-slate-400 hover:bg-white"
+          aria-label={content.cartAria}
         >
           <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
             <path d="M3 4h2l2.3 9.2a1 1 0 0 0 1 .8h8.2a1 1 0 0 0 1-.8L17 6H7" strokeLinecap="round" strokeLinejoin="round" />

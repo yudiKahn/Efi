@@ -2,7 +2,13 @@
   "en": {
     "appName": "efi",
     "brandName": "Judaica",
-    "menuLinks": ["Collection", "Journal", "About"],
+    "menuLinks": [
+      { "label": "Home", "path": "/" },
+      { "label": "Mezuza", "path": "/mezuza" },
+      { "label": "Tefillin", "path": "/tefillin" },
+      { "label": "Sefer Torah", "path": "/sefer-torah" },
+      { "label": "Megilla", "path": "/megilla" }
+    ],
     "heroEyebrow": "Curated essentials",
     "heroTitle": "Judaica items",
     "heroDescription": "A calm, minimalist collection of ritual and everyday pieces shaped by tradition and timeless design.",
@@ -30,7 +36,13 @@
   "he": {
     "appName": "efi",
     "brandName": "יודאיקה",
-    "menuLinks": ["אוסף", "כתב עת", "אודות"],
+    "menuLinks": [
+      { "label": "עמוד בית", "path": "/" },
+      { "label": "מזוזה", "path": "/mezuza" },
+      { "label": "תפילין", "path": "/tefillin" },
+      { "label": "ספר תורה", "path": "/sefer-torah" },
+      { "label": "מגילה", "path": "/megilla" }
+    ],
     "heroEyebrow": "פריטים מעוצבים בקפידה",
     "heroTitle": "פריטי יהדות",
     "heroDescription": "אוסף calm and minimalist של פריטים טקסיים ויומיומיים, מעוצב בהשראה מסורתית ובעיצוב נצחי.",

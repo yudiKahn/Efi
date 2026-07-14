@@ -1,49 +1,63 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Header from './components/Header'
 import siteContent from './content/siteContent.json'
 import seferImage from './assets/sefer.png'
+import type { Locale } from './models/enums'
+import Mezuza from './pages/Mezuza'
+import Tefillin from './pages/Tefillin'
+import SeferTorah from './pages/SeferTorah'
+import Megilla from './pages/Megilla'
 
-type Locale = 'en' | 'he'
-
-function App() {
-  const [locale, setLocale] = useState<Locale>('en')
+function AppContent({ locale, setLocale }: { locale: Locale; setLocale: (value: Locale) => void }) {
   const content = siteContent[locale]
 
   return (
     <div className="min-h-screen bg-[#f5efe7] text-slate-800">
       <Header locale={locale} onLocaleChange={setLocale} />
 
-      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
-        <section className="relative overflow-hidden rounded-[2rem] border border-slate-200 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.35)]">
-          <div
-            className="relative min-h-[480px] bg-cover bg-center bg-no-repeat flex flex-wrap content-end "
-            style={{ backgroundImage: `url(${seferImage})`, backgroundSize: 'contain' }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-            <div className="relative flex h-full justify-center mx-auto px-6 pb-10 text-center sm:px-10 sm:pb-14">
-              <div className="max-w-2xl text-white">
-                <p className="text-sm uppercase tracking-[0.35em] text-white/80">{content.heroEyebrow}</p>
-                <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
-                  {content.heroTitle}
-                </h2>
-                <p className="mt-4 text-base leading-7 text-white/90 sm:text-lg">
-                  {content.heroDescription}
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <main className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
+              <section className="relative overflow-hidden rounded-[2rem] border border-slate-200 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.35)]">
+                <div
+                  className="relative min-h-[480px] bg-cover bg-center bg-no-repeat flex flex-wrap content-end "
+                  style={{ backgroundImage: `url(${seferImage})`, backgroundSize: 'contain' }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                  <div className="relative flex h-full justify-center mx-auto px-6 pb-10 text-center sm:px-10 sm:pb-14">
+                    <div className="max-w-2xl text-white">
+                      <p className="text-sm uppercase tracking-[0.35em] text-white/80">{content.heroEyebrow}</p>
+                      <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
+                        {content.heroTitle}
+                      </h2>
+                      <p className="mt-4 text-base leading-7 text-white/90 sm:text-lg">
+                        {content.heroDescription}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
 
-        <section className="grid gap-6 md:grid-cols-3">
-          {content.cards.map((item: { title: string; text: string }) => (
-            <article key={item.title} className="rounded-[1.5rem] border border-slate-200 bg-white/70 p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-600">{item.text}</p>
-            </article>
-          ))}
-        </section>
-      </main>
+              <section className="grid gap-6 md:grid-cols-3">
+                {content.cards.map((item: { title: string; text: string }) => (
+                  <article key={item.title} className="rounded-[1.5rem] border border-slate-200 bg-white/70 p-6 shadow-sm">
+                    <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-slate-600">{item.text}</p>
+                  </article>
+                ))}
+              </section>
+            </main>
+          }
+        />
+        <Route path="/mezuza" element={<Mezuza locale={locale} />} />
+        <Route path="/tefillin" element={<Tefillin locale={locale} />} />
+        <Route path="/sefer-torah" element={<SeferTorah locale={locale} />} />
+        <Route path="/megilla" element={<Megilla locale={locale} />} />
+      </Routes>
 
       <a
         href="https://wa.me/972528977603"
@@ -58,6 +72,16 @@ function App() {
         </svg>
       </a>
     </div>
+  )
+}
+
+function App() {
+  const [locale, setLocale] = useState<Locale>('en')
+
+  return (
+    <BrowserRouter basename="/Efi/">
+      <AppContent locale={locale} setLocale={setLocale} />
+    </BrowserRouter>
   )
 }
 

@@ -31,7 +31,23 @@
     "menuAria": "Open navigation menu",
     "cartAria": "Open cart",
     "whatsappAria": "Contact via WhatsApp",
-    "localeLabel": "Language"
+    "localeLabel": "Language",
+    "sortBy": "SORT BY",
+    "sortDefault": "Featured",
+    "sortPriceAsc": "Price: Low to High",
+    "sortPriceDesc": "Price: High to Low",
+    "sortNameAsc": "Name: A-Z",
+    "filter": "FILTER",
+    "loading": "Loading products in real-time...",
+    "errorMsg": "Failed to fetch catalog from Google Sheets.",
+    "retryBtn": "Retry",
+    "emptyState": "No products found in this category. Check your Google Sheet data.",
+    "layoutGrid": "Grid View",
+    "layoutTable": "Table View (All Columns)",
+    "noImage": "No Image",
+    "unnamedItem": "Unnamed Item",
+    "columnsFound": "Columns found in Google Sheet:",
+    "itemsCount": "{count} items found"
   },
   "he": {
     "appName": "efi",
@@ -65,6 +81,22 @@
     "menuAria": "פתח את תפריט הניווט",
     "cartAria": "פתח את העגלה",
     "whatsappAria": "צרו קשר בווטסאפ",
-    "localeLabel": "שפה"
+    "localeLabel": "שפה",
+    "sortBy": "מיין לפי",
+    "sortDefault": "ברירת מחדל",
+    "sortPriceAsc": "מחיר: מהנמוך לגבוה",
+    "sortPriceDesc": "מחיר: מהגבוה לנמוך",
+    "sortNameAsc": "שם: א-ת",
+    "filter": "סינון",
+    "loading": "טוען מוצרים בזמן אמת...",
+    "errorMsg": "שגיאה בטעינת הקטלוג מגוגל שיטס.",
+    "retryBtn": "נסה שוב",
+    "emptyState": "לא נמצאו מוצרים תחת קטגוריה זו. בדוק את הנתונים בגוגל שיטס.",
+    "layoutGrid": "תצוגת גריד",
+    "layoutTable": "תצוגת טבלה (כל העמודות)",
+    "noImage": "אין תמונה",
+    "unnamedItem": "פריט ללא שם",
+    "columnsFound": "עמודות שנמצאו בגוגל שיטס:",
+    "itemsCount": "נמצאו {count} פריטים"
   }
 }

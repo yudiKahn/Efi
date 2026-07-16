@@ -59,6 +59,16 @@ export class SeoManager {
         description: 'Browse megillot and related Sofer Stam products from Atika Kadisha.',
       },
     },
+    '/cart': {
+      he: {
+        title: 'עגלה | עתיקא קדישא',
+        description: 'צפו במוצרים שנוספו לעגלה באתר עתיקא קדישא.',
+      },
+      en: {
+        title: 'Cart | Atika Kadisha',
+        description: 'Review the products added to your cart at Atika Kadisha.',
+      },
+    },
   }
 
   private static readonly keywordsByLocale: Record<Locale, string> = {

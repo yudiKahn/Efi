@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { Locale } from '../models/enums'
 import type { Product } from '../services/CatalogService'
 import siteContent from '../content/siteContent.json'
+import { useCart } from '../hooks/useCart'
 
 interface PageProps {
   title: string
@@ -15,6 +16,7 @@ interface PageProps {
 function Page({ title, products, headers, loading, error, locale }: PageProps) {
   const [sortBy, setSortBy] = useState<string>('default')
   const [viewLayout, setViewLayout] = useState<'grid' | 'table'>('grid')
+  const { addToCart, getQuantity } = useCart()
 
   // Read translations from JSON content
   const content = siteContent[locale] as Record<string, any>
@@ -175,22 +177,19 @@ function Page({ title, products, headers, loading, error, locale }: PageProps) {
                     <div className="product-card__details">
                       <h3 className="product-card__name">{item.name || content.unnamedItem}</h3>
                       <p className="product-card__price">{displayPrice}</p>
+                      <button
+                        type="button"
+                        className="cart-action-button"
+                        onClick={() => addToCart(item.id)}
+                        disabled={!item.id}
+                      >
+                        {item.id
+                          ? getQuantity(item.id) > 0
+                            ? `${content.addToCart} (${getQuantity(item.id)})`
+                            : content.addToCart
+                          : content.unavailable}
+                      </button>
                       
-                      {/* Dynamic other columns from Google Sheet */}
-                      {extraColumns.length > 0 && (
-                        <div className="product-card__extra-details">
-                          {extraColumns.map(col => {
-                            const val = item[col]
-                            if (!val) return null
-                            return (
-                              <div key={col} className="extra-detail-row">
-                                <span className="extra-detail-label">{col}:</span>
-                                <span className="extra-detail-value">{val}</span>
-                              </div>
-                            )
-                          })}
-                        </div>
-                      )}
                     </div>
                   </article>
                 )
@@ -205,6 +204,7 @@ function Page({ title, products, headers, loading, error, locale }: PageProps) {
                     {headers.map(header => (
                       <th key={header}>{header.toUpperCase()}</th>
                     ))}
+                    <th>{content.cartColumn}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -225,6 +225,20 @@ function Page({ title, products, headers, loading, error, locale }: PageProps) {
                         }
                         return <td key={header}>{val}</td>
                       })}
+                      <td>
+                        <button
+                          type="button"
+                          className="cart-table-button"
+                          onClick={() => addToCart(item.id)}
+                          disabled={!item.id}
+                        >
+                          {item.id
+                            ? getQuantity(item.id) > 0
+                              ? `${content.addToCart} (${getQuantity(item.id)})`
+                              : content.addToCart
+                            : content.unavailable}
+                        </button>
+                      </td>
                     </tr>
                   ))}
                 </tbody>

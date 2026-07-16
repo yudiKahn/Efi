@@ -10,6 +10,7 @@ import Mezuza from './pages/Mezuza'
 import Tefillin from './pages/Tefillin'
 import SeferTorah from './pages/SeferTorah'
 import Megilla from './pages/Megilla'
+import Cart from './pages/Cart'
 
 function AppContent({ locale, setLocale }: { locale: Locale; setLocale: (value: Locale) => void }) {
   const location = useLocation()
@@ -59,6 +60,7 @@ function AppContent({ locale, setLocale }: { locale: Locale; setLocale: (value: 
         <Route path="/tefillin" element={<Tefillin locale={locale} />} />
         <Route path="/sefer-torah" element={<SeferTorah locale={locale} />} />
         <Route path="/megilla" element={<Megilla locale={locale} />} />
+        <Route path="/cart" element={<Cart locale={locale} />} />
       </Routes>
 
       <a

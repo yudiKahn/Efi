@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import siteContent from '../content/siteContent.json'
+import { useCart } from '../hooks/useCart'
 import type { Locale } from '../models/enums'
 
 function Header({ locale, onLocaleChange }: { locale: Locale; onLocaleChange: (value: Locale) => void }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const content = siteContent[locale]
+  const { count } = useCart()
 
   return (
     <header className="site-header">
@@ -77,13 +79,14 @@ function Header({ locale, onLocaleChange }: { locale: Locale; onLocaleChange: (v
             <span>/</span>
             <button type="button" onClick={() => onLocaleChange('he')} className={locale === 'he' ? 'is-active' : ''}>עב</button>
           </div>
-          <button type="button" className="icon-button" aria-label={content.cartAria}>
+          <Link to="/cart" className="icon-button cart-button-link" aria-label={content.cartAria}>
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M3 4h2l2.3 9.2a1 1 0 0 0 1 .8h8.2a1 1 0 0 0 1-.8L17 6H7" strokeLinecap="round" strokeLinejoin="round" />
               <circle cx="10" cy="19" r="1.25" fill="currentColor" stroke="none" />
               <circle cx="17" cy="19" r="1.25" fill="currentColor" stroke="none" />
             </svg>
-          </button>
+            {count > 0 && <span className="cart-count-badge">{count}</span>}
+          </Link>
         </div>
       </div>
     </header>

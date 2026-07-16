@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Header from './components/Header'
@@ -13,6 +13,10 @@ import Megilla from './pages/Megilla'
 function AppContent({ locale, setLocale }: { locale: Locale; setLocale: (value: Locale) => void }) {
   const content = siteContent[locale]
 
+  useEffect(() => {
+    document.title = locale === 'he' ? 'עתיקא קדישא' : 'Atika Kadisha'
+  }, [locale])
+
   return (
     <div className="site-shell" dir={locale === 'he' ? 'rtl' : 'ltr'}>
       <Header locale={locale} onLocaleChange={setLocale} />
@@ -25,20 +29,20 @@ function AppContent({ locale, setLocale }: { locale: Locale; setLocale: (value: 
               <section className="home-hero">
                 <div
                   className="home-hero__image"
-                  style={{ backgroundImage: `url(${seferImage})` }}
+                  style={{ backgroundImage: `url(${seferImage})`, backgroundSize: 'contain' }}
                   role="img"
                   aria-label=""
                 />
                 <div className="home-hero__copy">
                   <div>
-                    <p className="eyebrow">{content.heroEyebrow}</p>
+                    {/* <p className="eyebrow">{content.heroEyebrow}</p> */}
                     <h2 className="display-type home-hero__title">{content.heroTitle}</h2>
-                    <p className="home-hero__description">{content.heroDescription}</p>
+                    {/* <p className="home-hero__description">{content.heroDescription}</p> */}
                   </div>
                 </div>
               </section>
 
-              <section className="feature-grid">
+              <section className={`feature-grid ${content.cards.length === 1 ? 'is-single' : ''}`}>
                 {content.cards.map((item: { title: string; text: string }) => (
                   <article key={item.title} className="feature-card">
                     <h3>{item.title}</h3>
@@ -71,7 +75,7 @@ function AppContent({ locale, setLocale }: { locale: Locale; setLocale: (value: 
 }
 
 function App() {
-  const [locale, setLocale] = useState<Locale>('en')
+  const [locale, setLocale] = useState<Locale>('he')
 
   return (
     <BrowserRouter basename="/Efi/">

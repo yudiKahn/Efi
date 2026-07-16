@@ -15,15 +15,11 @@ export default function Megilla({ locale }: MegillaProps) {
     return cat.toLowerCase().includes('megilla') || cat.toLowerCase().includes('מגילה')
   })
 
-  const title = locale === 'en' ? 'MEGILLA' : 'מגילה'
-  const description = locale === 'en'
-    ? 'A Megillah is a parchment scroll containing scripture, most commonly the Book of Esther. Explore our collection.'
-    : 'מגילה היא כרך קלף המכיל כתבי קודש, בדרך כלל מגילת אסתר. גלו את האוסף שלנו.'
+  const title = locale === 'en' ? 'MEGILLA' : 'מגילה';
 
   return (
     <Page
       title={title}
-      description={description}
       products={megillaProducts}
       headers={headers}
       loading={loading}

@@ -1,31 +1,25 @@
 {
   "en": {
-    "appName": "efi",
-    "brandName": "Judaica",
+    "appName": "Atika Kadisha",
+    "brandName": "Atika Kadisha",
     "menuLinks": [
       { "label": "Home", "path": "/" },
       { "label": "Mezuza", "path": "/mezuza" },
       { "label": "Tefillin", "path": "/tefillin" },
       { "label": "Sefer Torah", "path": "/sefer-torah" },
-      { "label": "Megilla", "path": "/megilla" }
+      { "label": "Megilla", "path": "/megilla" },
+      { "label": "Tefillin bags", "path": "/tefillinBags" },
+      { "label": "Mezuza house", "path": "/mezuzaHouse" }
     ],
     "heroEyebrow": "Curated essentials",
-    "heroTitle": "Judaica items",
+    "heroTitle": "Atika Kadisha",
     "heroDescription": "A calm, minimalist collection of ritual and everyday pieces shaped by tradition and timeless design.",
     "ctaPrimary": "Explore pieces",
     "ctaSecondary": "View lookbook",
     "cards": [
       {
-        "title": "Timeless forms",
-        "text": "Soft silhouettes and sculptural shape in tactile finishes."
-      },
-      {
-        "title": "Made to last",
-        "text": "Thoughtful materials selected for warmth, comfort, and longevity."
-      },
-      {
-        "title": "Elevated details",
-        "text": "A refined palette that brings understated elegance to any room."
+        "title": "Under the management and supervision of Rabbi Efraim Cohen",
+        "text": "A certified Sofer Stam with a decade of experience in the field. All products we sell are sourced directly from carefully selected, certified and Yirei-Shamaim."
       }
     ],
     "menuAria": "Open navigation menu",
@@ -50,32 +44,26 @@
     "itemsCount": "{count} items found"
   },
   "he": {
-    "appName": "efi",
-    "brandName": "יודאיקה",
+    "appName": "עתיקא קדישא",
+    "brandName": "עתיקא קדישא",
     "menuLinks": [
       { "label": "עמוד בית", "path": "/" },
       { "label": "מזוזה", "path": "/mezuza" },
       { "label": "תפילין", "path": "/tefillin" },
       { "label": "ספר תורה", "path": "/sefer-torah" },
-      { "label": "מגילה", "path": "/megilla" }
+      { "label": "מגילה", "path": "/megilla" },
+      { "label": "תיקי תפילין", "path": "/tefillinBags" },
+      { "label": "בתי מזוזה", "path": "/mezuzaHouse" }
     ],
     "heroEyebrow": "פריטים מעוצבים בקפידה",
-    "heroTitle": "פריטי יהדות",
+    "heroTitle": "עתיקא קדישא",
     "heroDescription": "אוסף calm and minimalist של פריטים טקסיים ויומיומיים, מעוצב בהשראה מסורתית ובעיצוב נצחי.",
     "ctaPrimary": "לגלות פריטים",
     "ctaSecondary": "לצפות בקטלוג",
     "cards": [
       {
-        "title": "צורות נצחיות",
-        "text": "קווים רכים וצורות מעוגלות בבדים ומרקמים עשירים."
-      },
-      {
-        "title": "נבנה להחזיק",
-        "text": "חומרים נבחרים בקפידה להעניק חמימות, נוחות ועמידות."
-      },
-      {
-        "title": "פרטים משובחים",
-        "text": "פלטת צבעים עדינה שמביאה אלגנטיות מאופקת לכל חלל."
+        "title": "בהנהלת ובפיקוחו של הרב אפרים כהן",
+        "text": "סופר סת''ם ומגיה סת''ם מוסמך בעל ותק של עשור בתחום הסת''ם כל המוצרים הנמכרים על ידינו נקנים ישירות מסופרים שנבחרו בקפידה  מוסמכים ויראי שמים בתכלית"
       }
     ],
     "menuAria": "פתח את תפריט הניווט",

@@ -15,15 +15,11 @@ export default function Tefillin({ locale }: TefillinProps) {
     return cat.toLowerCase().includes('tefillin') || cat.toLowerCase().includes('תפילין')
   })
 
-  const title = locale === 'en' ? 'TEFILLIN' : 'תפילין'
-  const description = locale === 'en'
-    ? 'Tefillin are small leather boxes worn during prayer containing Torah passages. Discover our premium tefillin collection.'
-    : 'תפילין הן קופסאות עור קטנות שלובשים בעת התפילה המכילות קטעי תורה. גלו את אוסף התפילין הפרימיום שלנו.'
+  const title = locale === 'en' ? 'TEFILLIN' : 'תפילין';
 
   return (
     <Page
       title={title}
-      description={description}
       products={tefillinProducts}
       headers={headers}
       loading={loading}

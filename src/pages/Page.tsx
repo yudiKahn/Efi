@@ -5,7 +5,6 @@ import siteContent from '../content/siteContent.json'
 
 interface PageProps {
   title: string
-  description: string
   products: Product[]
   headers: string[]
   loading: boolean
@@ -13,7 +12,7 @@ interface PageProps {
   locale: Locale
 }
 
-function Page({ title, description, products, headers, loading, error, locale }: PageProps) {
+function Page({ title, products, headers, loading, error, locale }: PageProps) {
   const [sortBy, setSortBy] = useState<string>('default')
   const [viewLayout, setViewLayout] = useState<'grid' | 'table'>('grid')
 
@@ -49,7 +48,6 @@ function Page({ title, description, products, headers, loading, error, locale }:
       {/* Dynamic Title and Description */}
       <section className="collection-intro">
         <h1 className="display-type">{title}</h1>
-        <p>{description}</p>
       </section>
 
       {/* Control bar */}
@@ -93,9 +91,9 @@ function Page({ title, description, products, headers, loading, error, locale }:
               <option value="name-asc">{content.sortNameAsc}</option>
             </select>
           </div>
-          <button type="button" className="filter-btn">
+          {/* <button type="button" className="filter-btn">
             {content.filter}
-          </button>
+          </button> */}
         </div>
       </section>
 

@@ -15,15 +15,11 @@ export default function Mezuza({ locale }: MezuzaProps) {
     return cat.toLowerCase().includes('mezuza') || cat.toLowerCase().includes('מזוזה')
   })
 
-  const title = locale === 'en' ? 'MEZUZOS' : 'מזוזות'
-  const description = locale === 'en' 
-    ? 'A mezuzah is a small parchment scroll placed on doorposts. Explore our elegant collection of mezuzah cases and scrolls.' 
-    : 'מזוזה היא כריכה עתיקה קטנה הממוקמת על מזוזות הדלתות. גלו את אוסף המזוזות והכרכים האלגנטיים שלנו.'
+  const title = locale === 'en' ? 'MEZUZOS' : 'מזוזות';
 
   return (
     <Page
       title={title}
-      description={description}
       products={mezuzaProducts}
       headers={headers}
       loading={loading}

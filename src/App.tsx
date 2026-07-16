@@ -11,6 +11,7 @@ import Tefillin from './pages/Tefillin'
 import SeferTorah from './pages/SeferTorah'
 import Megilla from './pages/Megilla'
 import Cart from './pages/Cart'
+import { getNavigationIcon } from './utils/navigationIcons'
 
 function AppContent({ locale, setLocale }: { locale: Locale; setLocale: (value: Locale) => void }) {
   const location = useLocation()
@@ -58,6 +59,9 @@ function AppContent({ locale, setLocale }: { locale: Locale; setLocale: (value: 
               <section className="home-links" aria-label="Site links">
                 {homeLinks.filter(link => link.path.length > 1).map((link: { label: string; path: string }) => (
                   <Link key={link.path} to={link.path} className="home-links__item">
+                    {getNavigationIcon(link.path) && (
+                      <img src={getNavigationIcon(link.path)} alt="" className="home-links__icon" aria-hidden="true" />
+                    )}
                     {link.label}
                   </Link>
                 ))}

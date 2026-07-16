@@ -1,6 +1,7 @@
 import type { Locale } from '../models/enums'
 import Page from './Page'
 import { useCatalog } from '../hooks/useCatalog'
+import { getNavigationIcon } from '../utils/navigationIcons'
 
 interface MegillaProps {
   locale: Locale
@@ -20,6 +21,7 @@ export default function Megilla({ locale }: MegillaProps) {
   return (
     <Page
       title={title}
+      iconPath={getNavigationIcon('/megilla')}
       products={megillaProducts}
       headers={headers}
       loading={loading}

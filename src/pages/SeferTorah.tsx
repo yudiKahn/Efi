@@ -1,6 +1,7 @@
 import type { Locale } from '../models/enums'
 import Page from './Page'
 import { useCatalog } from '../hooks/useCatalog'
+import { getNavigationIcon } from '../utils/navigationIcons'
 
 interface SeferTorahProps {
   locale: Locale
@@ -24,6 +25,7 @@ export default function SeferTorah({ locale }: SeferTorahProps) {
   return (
     <Page
       title={title}
+      iconPath={getNavigationIcon('/sefer-torah')}
       products={seferProducts}
       headers={headers}
       loading={loading}

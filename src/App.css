@@ -5,6 +5,7 @@
 
 .display-type {
   font-family: "Stam Ashkenaz CLM", "Times New Roman", serif;
+  text-transform: uppercase;
   font-weight: 400;
   letter-spacing: -0.035em;
 }
@@ -121,7 +122,9 @@
 }
 
 .mobile-menu-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
   padding: 0.75rem;
   color: #40413c;
   font-size: 0.78rem;
@@ -273,8 +276,22 @@
   margin: 0;
   color: #20221e;
   font-family: "Stam Ashkenaz CLM", "Times New Roman", serif;
+  text-transform: uppercase;
   font-size: clamp(3.25rem, 8vw, 6.5rem);
   line-height: 0.92;
+}
+
+.collection-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.collection-title__icon {
+  width: clamp(2.3rem, 5vw, 3.6rem);
+  height: clamp(2.3rem, 5vw, 3.6rem);
+  object-fit: contain;
+  flex: none;
 }
 
 .collection-intro p {
@@ -453,8 +470,11 @@
     gap: clamp(1.25rem, 2.2vw, 2.25rem);
   }
 
-  .desktop-nav__link {
+.desktop-nav__link {
     position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
     padding-block: 2.15rem;
     color: #666861;
     font-size: 0.7rem;
@@ -1141,10 +1161,6 @@
   font-weight: 400;
 }
 
-/* .feature-grid.is-single .feature-card:first-child h3 {
-  font-family: "Stam Ashkenaz CLM", "Times New Roman", serif;
-} */
-
 .feature-grid.is-single .feature-card p {
   max-width: 100%;
   font-size: clamp(0.95rem, 2.5vw, 1.15rem);
@@ -1163,6 +1179,9 @@
 }
 
 .home-links__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   padding: 1rem 0;
   border-bottom: 1px solid #e1dfd8;
   color: #40413c;
@@ -1172,6 +1191,27 @@
 
 .home-links__item:last-child {
   border-bottom: 0;
+}
+
+.nav-link-icon,
+.home-links__icon {
+  flex: none;
+  object-fit: contain;
+}
+
+.nav-link-icon--mobile {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.nav-link-icon--desktop {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.home-links__icon {
+  width: 1.35rem;
+  height: 1.35rem;
 }
 
 .home-links__item:hover {
@@ -1192,6 +1232,7 @@
 
   .home-links__item {
     flex: 1;
+    justify-content: center;
     padding: 1.1rem 1rem;
     border-bottom: 0;
     border-right: 1px solid #e1dfd8;

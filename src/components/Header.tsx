@@ -1,18 +1,41 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import siteContent from '../content/siteContent.json'
 import { useCart } from '../hooks/useCart'
 import type { Locale } from '../models/enums'
+import { getNavigationIcon } from '../utils/navigationIcons'
 
 function Header({ locale, onLocaleChange }: { locale: Locale; onLocaleChange: (value: Locale) => void }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const content = siteContent[locale]
   const { count } = useCart()
+  const menuContainerRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    if (!isMenuOpen) return
+
+    const handlePointerDown = (event: MouseEvent | TouchEvent) => {
+      if (!menuContainerRef.current) return
+
+      const target = event.target
+      if (target instanceof Node && !menuContainerRef.current.contains(target)) {
+        setIsMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handlePointerDown)
+    document.addEventListener('touchstart', handlePointerDown)
+
+    return () => {
+      document.removeEventListener('mousedown', handlePointerDown)
+      document.removeEventListener('touchstart', handlePointerDown)
+    }
+  }, [isMenuOpen])
 
   return (
     <header className="site-header">
       <div className="site-header__inner">
-        <div className="site-header__menu">
+        <div className="site-header__menu" ref={menuContainerRef}>
           <button
             type="button"
             onClick={() => setIsMenuOpen((open) => !open)}
@@ -35,6 +58,9 @@ function Header({ locale, onLocaleChange }: { locale: Locale; onLocaleChange: (v
                   className="mobile-menu-link"
                   onClick={() => setIsMenuOpen(false)}
                 >
+                  {getNavigationIcon(link.path) && (
+                    <img src={getNavigationIcon(link.path)} alt="" className="nav-link-icon nav-link-icon--mobile" aria-hidden="true" />
+                  )}
                   {link.label}
                 </Link>
               ))}
@@ -67,7 +93,7 @@ function Header({ locale, onLocaleChange }: { locale: Locale; onLocaleChange: (v
               key={link.path}
               to={link.path}
               className={({ isActive }) => `desktop-nav__link ${isActive ? 'is-active' : ''}`}
-            >
+            > 
               {link.label}
             </NavLink>
           ))}

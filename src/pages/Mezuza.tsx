@@ -1,6 +1,7 @@
 import type { Locale } from '../models/enums'
 import Page from './Page'
 import { useCatalog } from '../hooks/useCatalog'
+import { getNavigationIcon } from '../utils/navigationIcons'
 
 interface MezuzaProps {
   locale: Locale
@@ -20,6 +21,7 @@ export default function Mezuza({ locale }: MezuzaProps) {
   return (
     <Page
       title={title}
+      iconPath={getNavigationIcon('/mezuza')}
       products={mezuzaProducts}
       headers={headers}
       loading={loading}

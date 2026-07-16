@@ -6,6 +6,7 @@ import { useCart } from '../hooks/useCart'
 
 interface PageProps {
   title: string
+  iconPath?: string
   products: Product[]
   headers: string[]
   loading: boolean
@@ -13,7 +14,7 @@ interface PageProps {
   locale: Locale
 }
 
-function Page({ title, products, headers, loading, error, locale }: PageProps) {
+function Page({ title, iconPath, products, headers, loading, error, locale }: PageProps) {
   const [sortBy, setSortBy] = useState<string>('default')
   const [viewLayout, setViewLayout] = useState<'grid' | 'table'>('grid')
   const { addToCart, getQuantity } = useCart()
@@ -49,7 +50,10 @@ function Page({ title, products, headers, loading, error, locale }: PageProps) {
     <main className="collection-layout">
       {/* Dynamic Title and Description */}
       <section className="collection-intro">
-        <h1 className="display-type">{title}</h1>
+        <h1 className="display-type collection-title">
+          {iconPath && <img src={iconPath} alt="" className="collection-title__icon" aria-hidden="true" />}
+          <span>{title}</span>
+        </h1>
       </section>
 
       {/* Control bar */}

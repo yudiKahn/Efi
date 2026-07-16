@@ -1,6 +1,7 @@
 import type { Locale } from '../models/enums'
 import Page from './Page'
 import { useCatalog } from '../hooks/useCatalog'
+import { getNavigationIcon } from '../utils/navigationIcons'
 
 interface TefillinProps {
   locale: Locale
@@ -20,6 +21,7 @@ export default function Tefillin({ locale }: TefillinProps) {
   return (
     <Page
       title={title}
+      iconPath={getNavigationIcon('/tefillin')}
       products={tefillinProducts}
       headers={headers}
       loading={loading}

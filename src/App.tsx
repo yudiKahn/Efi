@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Link, Routes, Route, useLocation } from 'react-router-dom'
 import './App.css'
 import Header from './components/Header'
 import siteContent from './content/siteContent.json'
@@ -15,6 +15,7 @@ import Cart from './pages/Cart'
 function AppContent({ locale, setLocale }: { locale: Locale; setLocale: (value: Locale) => void }) {
   const location = useLocation()
   const content = siteContent[locale]
+  const homeLinks = [...content.menuLinks, { label: content.cartTitle, path: '/cart' }]
 
   useEffect(() => {
     SeoManager.apply(locale, location.pathname)
@@ -51,6 +52,14 @@ function AppContent({ locale, setLocale }: { locale: Locale; setLocale: (value: 
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
                   </article>
+                ))}
+              </section>
+
+              <section className="home-links" aria-label="Site links">
+                {homeLinks.filter(link => link.path.length > 1).map((link: { label: string; path: string }) => (
+                  <Link key={link.path} to={link.path} className="home-links__item">
+                    {link.label}
+                  </Link>
                 ))}
               </section>
             </main>

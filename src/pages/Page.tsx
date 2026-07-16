@@ -150,11 +150,6 @@ function Page({ title, products, headers, loading, error, locale }: PageProps) {
                   ? priceVal
                   : `${priceVal}.00 NIS`
 
-                // Other columns to render dynamically in card
-                const extraColumns = headers.filter(
-                  h => !['name', 'image', 'price', 'category'].includes(h)
-                )
-
                 return (
                   <article key={idx} className="catalog-product-card">
                     <div className="product-card__image-container">

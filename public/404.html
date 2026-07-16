@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>עתיקא קדישא</title>
+    <script>
+      // GitHub Pages cannot rewrite SPA routes to index.html. Send the original
+      // URL through the app entry point, where index.html restores it.
+      const pathSegmentsToKeep = 1
+      const pathSegments = window.location.pathname.split('/').filter(Boolean)
+      const basePath = `/${pathSegments.slice(0, pathSegmentsToKeep).join('/')}/`
+      const originalUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`
+
+      window.location.replace(`${basePath}?redirect=${encodeURIComponent(originalUrl)}`)
+    </script>
+  </head>
+  <body></body>
+</html>

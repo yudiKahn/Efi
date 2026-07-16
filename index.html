@@ -5,6 +5,14 @@
     <link rel="icon" type="image/png" href="/src/assets/sefer.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>עתיקא קדישא</title>
+    <script>
+      // GitHub Pages redirects deep links through 404.html. Restore the original
+      // URL before React Router starts so routes keep working after a reload.
+      const redirect = new URLSearchParams(window.location.search).get('redirect')
+      if (redirect?.startsWith('/Efi/')) {
+        window.history.replaceState(null, '', redirect)
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

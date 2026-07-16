@@ -1,7 +1,26 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Varela Round";
+  src: url("/Efi/fonts/VarelaRound-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: "Stam Ashkenaz CLM";
+  src:
+    url("/Efi/fonts/stamashkenazclm-webfont.woff") format("woff"),
+    url("/Efi/fonts/stamashkenazclm-webfont.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 :root {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Varela Round", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: #272823;
@@ -20,6 +39,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  font-family: inherit;
   background:
     radial-gradient(circle at 15% 0%, rgb(255 255 255 / 70%), transparent 28rem),
     #f7f5f0;

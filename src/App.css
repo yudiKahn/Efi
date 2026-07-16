@@ -4,7 +4,7 @@
 }
 
 .display-type {
-  font-family: Iowan Old Style, Baskerville, "Times New Roman", serif;
+  font-family: "Stam Ashkenaz CLM", "Times New Roman", serif;
   font-weight: 400;
   letter-spacing: -0.035em;
 }
@@ -34,7 +34,7 @@
 
 .site-brand {
   color: #23251f;
-  font-family: Iowan Old Style, Baskerville, "Times New Roman", serif;
+  font-family: "Stam Ashkenaz CLM", "Times New Roman", serif;
   font-size: 1.35rem;
   letter-spacing: 0.14em;
   line-height: 1;
@@ -225,7 +225,7 @@
 .feature-card h3 {
   margin: 0;
   color: #282a25;
-  font-family: Iowan Old Style, Baskerville, "Times New Roman", serif;
+  font-family: inherit;
   font-size: 1.45rem;
   font-weight: 400;
 }
@@ -252,6 +252,7 @@
 .collection-intro h1 {
   margin: 0;
   color: #20221e;
+  font-family: "Stam Ashkenaz CLM", "Times New Roman", serif;
   font-size: clamp(3.25rem, 8vw, 6.5rem);
   line-height: 0.92;
 }
@@ -288,7 +289,7 @@
 .collection-card h3 {
   margin: 0;
   color: #292b26;
-  font-family: Iowan Old Style, Baskerville, "Times New Roman", serif;
+  font-family: inherit;
   font-size: 1.5rem;
   font-weight: 400;
 }
@@ -990,13 +991,17 @@
 }
 
 .feature-grid.is-single .feature-card h3 {
-  font-family: Iowan Old Style, Baskerville, "Times New Roman", serif;
+  font-family: inherit;
   font-size: clamp(1.4rem, 4.5vw, 2.1rem);
   line-height: 1.45;
   color: #20221e;
   margin-bottom: 1.5rem;
   font-weight: 400;
 }
+
+/* .feature-grid.is-single .feature-card:first-child h3 {
+  font-family: "Stam Ashkenaz CLM", "Times New Roman", serif;
+} */
 
 .feature-grid.is-single .feature-card p {
   max-width: 100%;

@@ -15,6 +15,8 @@ function AppContent({ locale, setLocale }: { locale: Locale; setLocale: (value: 
 
   useEffect(() => {
     document.title = locale === 'he' ? 'עתיקא קדישא' : 'Atika Kadisha'
+    document.documentElement.lang = locale
+    document.documentElement.dir = locale === 'he' ? 'rtl' : 'ltr'
   }, [locale])
 
   return (

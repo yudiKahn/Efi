@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# GitHub Pages serves this SPA from /Efi/
+# Keep crawling enabled for all public routes.

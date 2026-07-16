@@ -1,23 +1,23 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import './App.css'
 import Header from './components/Header'
 import siteContent from './content/siteContent.json'
 import seferImage from './assets/sefer.png'
 import type { Locale } from './models/enums'
+import { SeoManager } from './services/SeoManager'
 import Mezuza from './pages/Mezuza'
 import Tefillin from './pages/Tefillin'
 import SeferTorah from './pages/SeferTorah'
 import Megilla from './pages/Megilla'
 
 function AppContent({ locale, setLocale }: { locale: Locale; setLocale: (value: Locale) => void }) {
+  const location = useLocation()
   const content = siteContent[locale]
 
   useEffect(() => {
-    document.title = locale === 'he' ? 'עתיקא קדישא' : 'Atika Kadisha'
-    document.documentElement.lang = locale
-    document.documentElement.dir = locale === 'he' ? 'rtl' : 'ltr'
-  }, [locale])
+    SeoManager.apply(locale, location.pathname)
+  }, [locale, location.pathname])
 
   return (
     <div className="site-shell" dir={locale === 'he' ? 'rtl' : 'ltr'}>

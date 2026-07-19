@@ -16,7 +16,18 @@ import { getNavigationIcon } from './utils/navigationIcons'
 function AppContent({ locale, setLocale }: { locale: Locale; setLocale: (value: Locale) => void }) {
   const location = useLocation()
   const content = siteContent[locale]
+  const sharedContent = siteContent.shared
   const homeLinks = [...content.menuLinks, { label: content.cartTitle, path: '/cart' }]
+  const categoryLinks = content.menuLinks.filter((link) =>
+    ['/sefer-torah', '/mezuza', '/tefillin', '/megilla'].includes(link.path)
+  )
+  const categoryDescriptions = content.homeCategoryDescriptions as Record<string, string>
+  const scrollToCategories = () => {
+    document.getElementById('home-category-grid')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }
 
   useEffect(() => {
     SeoManager.apply(locale, location.pathname)
@@ -34,18 +45,37 @@ function AppContent({ locale, setLocale }: { locale: Locale; setLocale: (value: 
               <section className="home-hero">
                 <div
                   className="home-hero__image"
-                  style={{ backgroundImage: `url(${seferImage})`, backgroundSize: 'contain' }}
+                  style={{ backgroundImage: `url(${seferImage})` }}
                   role="img"
-                  aria-label=""
-                />
-                <div className="home-hero__copy">
-                  <div>
-                    {/* <p className="eyebrow">{content.heroEyebrow}</p> */}
-                    <h2 className="display-type home-hero__title">{content.heroTitle}</h2>
-                    {/* <p className="home-hero__description">{content.heroDescription}</p> */}
+                  aria-label={content.brandName}
+                >
+                  <div className="home-hero__copy">
+                    <h2 className="display-type home-hero__title">{content.brandName}</h2>
+                    <div className="home-hero__ornament" aria-hidden="true">♕</div>
+                    <p className="home-hero__description">{content.cards[0]?.title}</p>
+                    <button type="button" className="home-hero__cta" onClick={scrollToCategories}>
+                      {content.ctaPrimary}
+                      <span aria-hidden="true">&larr;</span>
+                    </button>
                   </div>
                 </div>
               </section>
+
+              <section id="home-category-grid" className="home-category-grid" aria-label={content.homeCategoryAria}>
+                {categoryLinks.map((link) => (
+                  <Link key={link.path} to={link.path} className="home-category-card">
+                    {getNavigationIcon(link.path) && (
+                      <img src={getNavigationIcon(link.path)} alt="" className="home-category-card__icon" aria-hidden="true" />
+                    )}
+                    <h3>{link.label}</h3>
+                    <p>{categoryDescriptions[link.path]}</p>
+                    <span className="home-category-card__arrow" aria-hidden="true">&larr;</span>
+                  </Link>
+                ))}
+              </section>
+
+
+
 
               <section className={`feature-grid ${content.cards.length === 1 ? 'is-single' : ''}`}>
                 {content.cards.map((item: { title: string; text: string }) => (
@@ -56,16 +86,31 @@ function AppContent({ locale, setLocale }: { locale: Locale; setLocale: (value: 
                 ))}
               </section>
 
-              <section className="home-links" aria-label="Site links">
-                {homeLinks.filter(link => link.path.length > 1).map((link: { label: string; path: string }) => (
-                  <Link key={link.path} to={link.path} className="home-links__item">
-                    {getNavigationIcon(link.path) && (
-                      <img src={getNavigationIcon(link.path)} alt="" className="home-links__icon" aria-hidden="true" />
-                    )}
-                    {link.label}
-                  </Link>
-                ))}
-              </section>
+              <footer className="home-footer">
+                <div className="home-footer__brand">
+                  <p className="display-type">{content.brandName}</p>
+                  <div className="home-footer__ornament" aria-hidden="true">♕</div>
+                  <span>{content.brandSubtitle}</span>
+                </div>
+                <div>
+                  <h3>{content.homeFooterQuickLinksTitle}</h3>
+                  {homeLinks.filter((link) => link.path.length > 1).slice(0, 5).map((link) => (
+                    <Link key={link.path} to={link.path}>{link.label}</Link>
+                  ))}
+                </div>
+                <div>
+                  <h3>{content.homeFooterContactTitle}</h3>
+                  <a href={`tel:${sharedContent.contactPhone.replace(/-/g, '')}`}>{sharedContent.contactPhone}</a>
+                  <a href={`mailto:${sharedContent.contactEmail}`}>{sharedContent.contactEmail}</a>
+                  <span>{content.homeFooterLocation}</span>
+                </div>
+                <div>
+                  <h3>{content.homeFooterHoursTitle}</h3>
+                  {content.homeFooterHours.map((hours) => (
+                    <span key={hours}>{hours}</span>
+                  ))}
+                </div>
+              </footer>
             </main>
           }
         />
@@ -77,7 +122,7 @@ function AppContent({ locale, setLocale }: { locale: Locale; setLocale: (value: 
       </Routes>
 
       <a
-        href="https://wa.me/972528977603"
+        href={sharedContent.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp-link"

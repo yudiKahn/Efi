@@ -1,7 +1,12 @@
 {
+  "shared": {
+    "contactPhone": "052-8977603",
+    "contactEmail": "info@atikakadisha.co.il",
+    "whatsappUrl": "https://wa.me/972528977603"
+  },
   "en": {
-    "appName": "Atika Kadisha",
     "brandName": "Atika Kadisha",
+    "brandSubtitle": "Sofer Stam and sacred products",
     "menuLinks": [
       { "label": "Home", "path": "/" },
       { "label": "Mezuza", "path": "/mezuza" },
@@ -12,10 +17,33 @@
       { "label": "Mezuza house", "path": "/mezuzaHouse" }
     ],
     "heroEyebrow": "Curated essentials",
-    "heroTitle": "Atika Kadisha",
     "heroDescription": "A calm, minimalist collection of ritual and everyday pieces shaped by tradition and timeless design.",
-    "ctaPrimary": "Explore pieces",
+    "ctaPrimary": "View products",
     "ctaSecondary": "View lookbook",
+    "homeCategoryAria": "Product categories",
+    "homeCategoryDescriptions": {
+      "/sefer-torah": "Kosher Torah scrolls",
+      "/mezuza": "Mezuzot in all sizes",
+      "/tefillin": "Tefillin for every tradition",
+      "/megilla": "Megillot written to halacha"
+    },
+    "homeTrustAria": "Service highlights",
+    "homeTrustItems": [
+      "Personal service",
+      "Premium products",
+      "Written to halacha",
+      "Strict professional checks",
+      "Fast nationwide delivery"
+    ],
+    "homeFooterQuickLinksTitle": "Quick links",
+    "homeFooterContactTitle": "Contact",
+    "homeFooterHoursTitle": "Hours",
+    "homeFooterLocation": "Kiryat malachi",
+    "homeFooterHours": [
+      "Sun-Thu 9:00 - 13:00",
+      "16:00 - 20:00",
+      "Fri 9:00 - 13:00"
+    ],
     "cards": [
       {
         "title": "Under the management and supervision of Rabbi Efraim Kahn",
@@ -54,8 +82,8 @@
     "itemsCount": "{count} items found"
   },
   "he": {
-    "appName": "עתיקא קדישא",
     "brandName": "עתיקא קדישא",
+    "brandSubtitle": "סופר סת''ם ומוצרי קדושה",
     "menuLinks": [
       { "label": "עמוד בית", "path": "/" },
       { "label": "מזוזה", "path": "/mezuza" },
@@ -66,10 +94,33 @@
       { "label": "בתי מזוזה", "path": "/mezuzaHouse" }
     ],
     "heroEyebrow": "פריטים מעוצבים בקפידה",
-    "heroTitle": "עתיקא קדישא",
     "heroDescription": "אוסף calm and minimalist של פריטים טקסיים ויומיומיים, מעוצב בהשראה מסורתית ובעיצוב נצחי.",
-    "ctaPrimary": "לגלות פריטים",
+    "ctaPrimary": "לצפייה במוצרים",
     "ctaSecondary": "לצפות בקטלוג",
+    "homeCategoryAria": "קטגוריות מוצרים",
+    "homeCategoryDescriptions": {
+      "/sefer-torah": "ספרי תורה כתובים בהלכה",
+      "/mezuza": "מזוזות מהודרות בכל הגדלים",
+      "/tefillin": "תפילין בשיטות לכל העדות",
+      "/megilla": "מגילות אסתר כשרות למהדרין"
+    },
+    "homeTrustAria": "יתרונות השירות",
+    "homeTrustItems": [
+      "שירות אישי ואמין",
+      "מוצרים איכותיים מהשורה הראשונה",
+      "כתיבה כהלכה",
+      "בדיקות קפדניות והגהה מקצועית",
+      "משלוח מהיר לכל הארץ"
+    ],
+    "homeFooterQuickLinksTitle": "קישורים מהירים",
+    "homeFooterContactTitle": "יצירת קשר",
+    "homeFooterHoursTitle": "שעות פעילות",
+    "homeFooterLocation": "קרית מלאכי",
+    "homeFooterHours": [
+      "א'-ה' 9:00 - 13:00",
+      "16:00 - 20:00",
+      "ו' 9:00 - 13:00"
+    ],
     "cards": [
       {
         "title": "בהנהלת ובפיקוחו של הרב אפרים כהן",

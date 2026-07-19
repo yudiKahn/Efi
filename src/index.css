@@ -20,11 +20,24 @@
 }
 
 :root {
+  --color-ink: #173527;
+  --color-ink-soft: #516257;
+  --color-forest: #0f3324;
+  --color-forest-2: #183d2c;
+  --color-cream: #f6f1e8;
+  --color-cream-2: #ede5d8;
+  --color-card: #fbf7ef;
+  --color-line: #d9cebd;
+  --color-gold: #b9985b;
+  --color-gold-soft: #d7bf86;
+  --color-white: #fffdf8;
+  --shadow-card: 0 0.9rem 2.2rem rgb(34 28 18 / 10%);
+  --shadow-soft: 0 0.35rem 1rem rgb(34 28 18 / 8%);
   font-family: "Varela Round", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #272823;
-  background-color: #f7f5f0;
+  color: var(--color-ink);
+  background-color: var(--color-cream);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -32,7 +45,7 @@
 }
 
 html {
-  background: #f7f5f0;
+  background: var(--color-cream);
 }
 
 body {
@@ -41,8 +54,7 @@ body {
   min-height: 100vh;
   font-family: inherit;
   background:
-    radial-gradient(circle at 15% 0%, rgb(255 255 255 / 70%), transparent 28rem),
-    #f7f5f0;
+    linear-gradient(180deg, var(--color-cream) 0%, #f9f5ec 48%, var(--color-cream-2) 100%);
 }
 
 #root {
@@ -60,5 +72,5 @@ button {
 
 ::selection {
   color: #fff;
-  background: #5b6651;
+  background: var(--color-forest);
 }

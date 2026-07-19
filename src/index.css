@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "Varela Round";
-  src: url("/Efi/fonts/VarelaRound-Regular.ttf") format("truetype");
+  src: url("/Atika-Kadisha/fonts/VarelaRound-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -12,8 +12,8 @@
 @font-face {
   font-family: "Stam Ashkenaz CLM";
   src:
-    url("/Efi/fonts/stamashkenazclm-webfont.woff") format("woff"),
-    url("/Efi/fonts/stamashkenazclm-webfont.ttf") format("truetype");
+    url("/Atika-Kadisha/fonts/stamashkenazclm-webfont.woff") format("woff"),
+    url("/Atika-Kadisha/fonts/stamashkenazclm-webfont.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;

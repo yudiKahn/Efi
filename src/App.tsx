@@ -140,7 +140,7 @@ function App() {
   const [locale, setLocale] = useState<Locale>('he')
 
   return (
-    <BrowserRouter basename="/Efi/">
+    <BrowserRouter basename="/Atika-Kadisha/">
       <AppContent locale={locale} setLocale={setLocale} />
     </BrowserRouter>
   )

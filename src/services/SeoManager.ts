@@ -7,6 +7,8 @@ type MetaFields = {
 
 type LocalizedMeta = Record<Locale, MetaFields>
 
+const SITE_BASE_PATH = '/Atika-Kadisha'
+
 export class SeoManager {
   private static readonly pageMetaByPath: Record<string, LocalizedMeta> = {
     '/': {
@@ -80,7 +82,8 @@ export class SeoManager {
     const normalizedPath = pathname.replace(/\/+$/, '') || '/'
     const pageMeta = this.pageMetaByPath[normalizedPath] ?? this.pageMetaByPath['/']
     const localizedMeta = pageMeta[locale]
-    const canonicalUrl = `${window.location.origin}${pathname}`
+    const canonicalPath = `${SITE_BASE_PATH}${normalizedPath === '/' ? '/' : normalizedPath}`
+    const canonicalUrl = `${window.location.origin}${canonicalPath}`
 
     document.title = localizedMeta.title
     document.documentElement.lang = locale
